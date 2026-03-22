@@ -1,0 +1,251 @@
+/* --- Styles Généraux --- */
+:root {
+    --dark-blue: #1b3a72;
+    --light-blue-bg: #edf3f7;
+    --left-col-bg: #e3ecf2;
+    --text-color: #222;
+    --white: #ffffff;
+    --linkedin-blue: #0077b5;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: var(--white);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+h1, h2, h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--dark-blue);
+}
+
+/* --- En-tête (Header) --- */
+.header {
+    background-color: var(--light-blue-bg);
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+
+.header-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--white);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.header-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.header-content p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- Barre de Contact --- */
+.contact-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--white);
+    border-bottom: 2px solid var(--light-blue-bg);
+    font-size: 0.95rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Boutons interactifs */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-linkedin {
+    background-color: var(--linkedin-blue);
+    color: white;
+}
+
+.btn-linkedin:hover {
+    background-color: #005885;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 119, 181, 0.3);
+}
+
+.btn-email {
+    background-color: var(--dark-blue);
+    color: white;
+}
+
+.btn-email:hover {
+    background-color: #122852;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(27, 58, 114, 0.3);
+}
+
+/* --- Corps du CV (Grille) --- */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Colonne de gauche */
+.left-col {
+    background-color: var(--left-col-bg);
+    padding: 40px;
+}
+
+/* Colonne de droite */
+.right-col {
+    padding: 40px;
+    background: linear-gradient(135deg, var(--light-blue-bg) 0%, var(--light-blue-bg) 40%, var(--white) 40%, var(--white) 100%);
+}
+
+/* Sections */
+.section {
+    margin-bottom: 40px;
+}
+
+.section h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--dark-blue);
+    padding-bottom: 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+.experience-item {
+    margin-bottom: 20px;
+}
+
+.experience-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.experience-item p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.experience-item ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 0.95rem;
+}
+
+.skills-list, .travel-list, .hobbies-list {
+    text-align: center;
+    list-style: none;
+}
+
+.skills-list li, .travel-list li, .hobbies-list li {
+    margin-bottom: 15px;
+}
+
+.school-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.school-info h3 {
+    font-family: 'Segoe UI', sans-serif;
+    margin-bottom: 10px;
+}
+
+/* --- Responsivité (Mobiles) --- */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    .right-col {
+        background: var(--white);
+    }
+}
+
+
+/* --- Mode Sombre (Dark Mode) --- */
+/* Lorsque le body a la classe 'dark-mode', on remplace les couleurs */
+body.dark-mode {
+    --dark-blue: #90caf9; /* Bleu plus clair pour ressortir sur le fond sombre */
+    --light-blue-bg: #1e293b;
+    --left-col-bg: #0f172a;
+    --text-color: #f8fafc;
+    --white: #1e293b;
+    background-color: #020617; /* Fond général de la page */
+}
+
+body.dark-mode .right-col {
+    background: linear-gradient(135deg, var(--light-blue-bg) 0%, var(--light-blue-bg) 40%, #111827 40%, #111827 100%);
+}
+
+/* --- Boutons de contrôle (En haut à droite) --- */
+.controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn {
+    background-color: var(--dark-blue);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.control-btn:hover {
+    opacity: 0.8;
+}
+
+/* --- Gestion des Langues --- */
+/* Si le body est en français, on cache l'anglais, et inversement */
+body.lang-fr .en { display: none; }
+body.lang-en .fr { display: none; }
